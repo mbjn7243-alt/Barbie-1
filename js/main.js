@@ -162,3 +162,57 @@ if (document.querySelector("#board-viewport")) {
     });
   });
 }
+
+/* พื้นหลังกากเพชร: ดาวประกายลอยทุกหน้า */
+(function addSparks() {
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const count = window.innerWidth < 600 ? 14 : 26;
+  for (let i = 0; i < count; i++) {
+    const star = document.createElement("span");
+    star.className = "spark";
+    star.setAttribute("aria-hidden", "true");
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.top = Math.random() * 100 + "vh";
+    star.style.setProperty("--s", (8 + Math.random() * 16).toFixed(0) + "px");
+    star.style.setProperty("--d", (4 + Math.random() * 5).toFixed(1) + "s");
+    star.style.animationDelay = (-Math.random() * 8).toFixed(1) + "s";
+    document.body.appendChild(star);
+  }
+})();
+
+/* ภาพ 3 ภาพซ้อนกัน (Story / About): กดภาพไหนก็สลับขึ้นมาข้างหน้า */
+(function stackOpeningArt() {
+  const box = document.querySelector(".opening-art");
+  if (!box) return;
+  const cards = Array.from(box.querySelectorAll("img"));
+  if (cards.length < 3) return;
+  let order = cards.slice(); // order[0] = ภาพหน้าสุด
+
+  function render() {
+    order.forEach(function (img, pos) {
+      img.setAttribute("data-pos", pos);
+    });
+  }
+
+  cards.forEach(function (img) {
+    img.setAttribute("tabindex", "0");
+    img.setAttribute("role", "button");
+    img.setAttribute("aria-label", (img.alt ? img.alt + " — " : "") + "กดเพื่อสลับภาพ");
+    img.addEventListener("click", function () {
+      if (order[0] === img) {
+        order.push(order.shift()); // กดภาพหน้าสุดซ้ำ = ส่งไปท้ายสุด
+      } else {
+        order = [img].concat(order.filter(function (i) { return i !== img; }));
+      }
+      render();
+    });
+    img.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        img.click();
+      }
+    });
+  });
+
+  render();
+})();

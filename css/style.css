@@ -8,11 +8,80 @@
 
 body {
   margin: 0;
-  background: rgb(255, 178, 222);
+  position: relative;
+  background:
+    radial-gradient(ellipse at 15% 10%, rgba(255, 255, 255, .85), transparent 45%),
+    radial-gradient(ellipse at 85% 20%, rgba(228, 201, 255, .75), transparent 50%),
+    radial-gradient(ellipse at 20% 90%, rgba(207, 230, 255, .8), transparent 50%),
+    radial-gradient(ellipse at 90% 85%, rgba(255, 150, 210, .75), transparent 50%),
+    linear-gradient(135deg, #ffb2de 0%, #f3c8ff 50%, #cfe3ff 100%);
+  background-attachment: fixed;
   color: var(--ink);
   font-family: "Plus Jakarta Sans", "Noto Sans Thai", sans-serif;
   font-size: 16px;
   line-height: 28px;
+}
+
+/* พื้นหลังกากเพชรเจ้าหญิง: ใช้ทุกหน้า */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body::before {
+  background-image:
+    radial-gradient(circle, #fff 0 1.2px, transparent 2px),
+    radial-gradient(circle, #fff7c2 0 1px, transparent 1.8px),
+    radial-gradient(circle, #fff 0 1.6px, transparent 2.4px),
+    radial-gradient(circle, rgba(255, 255, 255, .8) 0 .8px, transparent 1.6px);
+  background-size: 137px 149px, 89px 97px, 211px 193px, 53px 61px;
+  background-position: 12px 30px, 55px 8px, 100px 120px, 7px 44px;
+  animation: glitter-a 3.2s ease-in-out infinite;
+}
+
+body::after {
+  background-image:
+    radial-gradient(circle, #fff 0 1.4px, transparent 2.2px),
+    radial-gradient(circle, #ffe3f7 0 1.1px, transparent 2px),
+    radial-gradient(circle, #fffbd6 0 1.8px, transparent 2.6px),
+    radial-gradient(circle, #fff 0 .9px, transparent 1.7px);
+  background-size: 173px 157px, 101px 113px, 241px 227px, 67px 71px;
+  background-position: 70px 90px, 20px 60px, 160px 20px, 33px 17px;
+  animation: glitter-b 4.1s ease-in-out infinite;
+}
+
+@keyframes glitter-a {
+  0%, 100% { opacity: .25; }
+  50% { opacity: 1; }
+}
+
+@keyframes glitter-b {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .2; }
+}
+
+/* ดาวประกายลอย (สร้างจาก js/main.js) */
+.spark {
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  width: var(--s, 14px);
+  height: var(--s, 14px);
+  background: #fff;
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  opacity: 0;
+  animation: spark-float var(--d, 6s) ease-in-out infinite;
+}
+
+@keyframes spark-float {
+  0% { opacity: 0; transform: translateY(10px) scale(.4) rotate(0deg); }
+  30% { opacity: 1; }
+  70% { opacity: .9; }
+  100% { opacity: 0; transform: translateY(-40px) scale(1.2) rotate(120deg); }
 }
 
 .container {
@@ -112,7 +181,8 @@ img {
   position: sticky;
   top: 0;
   z-index: 1030;
-  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, .72);
+  backdrop-filter: blur(8px);
 }
 
 .nav-link.active::after {
@@ -957,41 +1027,82 @@ img {
 }
 
 
-/* พื้นที่รูปภาพอยู่ทางขวาของหน้าเว็บ */
+/* พื้นที่รูปภาพอยู่ทางขวาของหน้าเว็บ: ภาพ 3 ภาพซ้อนกัน กดเพื่อสลับขึ้นมาข้างหน้า */
 .opening-art {
   position: absolute !important;
   top: 50% !important;
   right: 4% !important;
   left: auto !important;
 
-  max-width: 780px !important;
+  width: min(520px, 46vw) !important;
+  max-width: 100% !important;
+  height: 460px !important;
   margin: 0 !important;
+  padding: 0 !important;
 
-  display: flex !important;
-  flex-direction: row !important;
+  display: block !important;
   transform: translateY(-50%) !important;
-  background: rgb(252, 132, 206);
+  background: transparent !important;
 }
 
-/* รูปทั้งสามเรียงกัน ไม่ซ้อนกัน */
 .opening-art .art-main,
 .opening-art .art-left,
 .opening-art .art-small {
-  position: relative !important;
-  top: auto !important;
+  position: absolute !important;
+  top: 0 !important;
   right: auto !important;
   bottom: auto !important;
-  left: auto !important;
+  left: 50% !important;
 
   display: block !important;
-  width: calc((100% - 36px) / 3) !important;
+  width: min(270px, 62%) !important;
   max-width: none !important;
-  height: 300px !important;
-  flex: 0 0 calc((100% - 36px) / 3) !important;
+  height: 380px !important;
+  flex: none !important;
 
-  object-fit: contain !important;
-  transform: none !important;
+  object-fit: cover !important;
+  border: 5px solid #fff;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(190, 60, 150, .4);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .5s cubic-bezier(.2, .8, .2, 1), box-shadow .3s;
 }
+
+/* ลำดับการซ้อน: pos 0 อยู่หน้าสุด (js/main.js เป็นตัวสลับ) */
+.opening-art img[data-pos="0"] {
+  z-index: 3;
+  transform: translateX(-50%) rotate(0deg) scale(1) !important;
+}
+
+.opening-art img[data-pos="1"] {
+  z-index: 2;
+  transform: translateX(-88%) translateY(24px) rotate(-9deg) scale(.94) !important;
+}
+
+.opening-art img[data-pos="2"] {
+  z-index: 1;
+  transform: translateX(-12%) translateY(24px) rotate(9deg) scale(.94) !important;
+}
+
+.opening-art img[data-pos="1"]:hover {
+  transform: translateX(-92%) translateY(10px) rotate(-11deg) scale(.98) !important;
+}
+
+.opening-art img[data-pos="2"]:hover {
+  transform: translateX(-8%) translateY(10px) rotate(11deg) scale(.98) !important;
+}
+
+.opening-art img[data-pos="0"]:hover {
+  box-shadow: 0 16px 38px rgba(190, 60, 150, .55);
+}
+
+/* ก่อน JS ทำงาน ให้ซ้อนกันแบบพื้นฐานไว้ก่อน */
+.opening-art .art-main { z-index: 3; transform: translateX(-50%) !important; }
+.opening-art .art-left { z-index: 2; transform: translateX(-88%) translateY(24px) rotate(-9deg) scale(.94) !important; }
+.opening-art .art-small { z-index: 1; transform: translateX(-12%) translateY(24px) rotate(9deg) scale(.94) !important; }
 
 /* ปรับให้เหมาะกับหน้าจอเล็ก */
 @media (max-width: 768px) {
@@ -1001,16 +1112,24 @@ img {
     right: auto !important;
     transform: none !important;
     width: 100% !important;
-    max-width: 100% !important;
-    gap: 8px !important;
+    max-width: 420px !important;
+    height: 340px !important;
+    margin: 32px auto 0 !important;
   }
 
   .opening-art .art-main,
   .opening-art .art-left,
   .opening-art .art-small {
-    height: 200px !important;
-    width: calc((100% - 16px) / 3) !important;
-    flex-basis: calc((100% - 16px) / 3) !important;
+    height: 280px !important;
+    width: 62% !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after,
+  .spark {
+    animation: none;
   }
 }
 
@@ -1253,7 +1372,7 @@ img {
 .story-midday {
   padding-top: 64px;
   padding-bottom: 64px;
-  background: rgb(255, 159, 228);
+  background: rgba(255, 159, 228, .55);
   color: white;
 }
 
