@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="th" data-bs-theme="light">
+
+<head>
+    <title>Collection | Barbie</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS v5.3.8 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+
+    <meta name="description" content="หนัง เพลง หนังสือ และของที่ชอบ กลับมาดูเมื่อไรก็ยังชอบอยู่" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600;1,700&amp;family=Noto+Sans+Thai:wght@400;500;600&amp;display=swap" />
+    <link rel="stylesheet" href="css/style.css" />
+
+</head>
+
+<body id="top">
+    <a class="skip-link" href="#main">ข้ามไปเนื้อหา</a>
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-light" aria-label="เมนูหลัก">
+            <!-- เติม: กรอบเมนู -->
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Barbie</a>
+                <!-- เติม: ปุ่มเปิดเมนู -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-label="เปิดเมนู">
+                    <i class="icon" data-lucide="menu" aria-hidden="true"></i>
+                </button>
+                <!-- เติม: offcanvas-md -->
+                <div class="offcanvas-md offcanvas-end" tabindex="-1" id="mainNav" aria-labelledby="menuTitle">
+                    <!-- เติม: หัวเมนูมือถือ -->
+                    <div class="offcanvas-header">
+                        <span id="menuTitle">Barbie</span>
+                        <button class="menu-close" type="button" data-bs-dismiss="offcanvas" data-bs-target="#mainNav"
+                            aria-label="ปิดเมนู">
+                            <i class="icon" data-lucide="x" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <!-- เติม: เนื้อหาเมนู -->
+                    <div class="offcanvas-body">
+                        <!-- เติม: รายการลิงก์ -->
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link " href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="story.html">Story</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="collection.html" aria-current="page">Collection</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About</a>
+                            </li>
+                        </ul>
+                        <!-- เติม: ช่องทางติดต่อในเมนู -->
+                        <div class="mobile-contact">
+                            <a class="menu-email email-link" href="mailto:hello@example.com">
+                                <i class="icon" data-lucide="mail" aria-hidden="true"></i>
+                                <span>hello@example.com</span>
+                            </a>
+                            <div class="menu-socials">
+                                <a href="https://www.instagram.com/" target="_blank"
+                                    rel="noopener noreferrer">Instagram</a>
+                                <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">Behance</a>
+                                <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main id="main" tabindex="-1">
+        <!-- หัวเรื่อง Collection -->
+        <section class="collection-intro container">
+            <h1>
+                Collected
+                <br />
+                <em>favorites.</em>
+            </h1>
+        </section>
+        <!-- แถวภาพ Collection -->
+        <section class="board-section" aria-label="Collection">
+            <!-- ปุ่มเลื่อนภาพ -->
+            <div class="board-toolbar container">
+                <div class="board-navigation">
+                    <button class="motion-control" id="board-pause" type="button" aria-label="หยุดการเลื่อน"
+                        aria-pressed="false">
+                        <i class="icon" data-lucide="pause" aria-hidden="true"></i>
+                        <span>Pause</span>
+                    </button>
+                    <button class="motion-control" id="board-prev" type="button" aria-label="เลื่อนภาพก่อนหน้า">
+                        <i class="icon" data-lucide="arrow-left" aria-hidden="true"></i>
+                        <span>Previous</span>
+                    </button>
+                    <button class="motion-control" id="board-next" type="button" aria-label="เลื่อนภาพถัดไป">
+                        <span>Next</span>
+                        <i class="icon" data-lucide="arrow-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- กรอบภาพ -->
+            <div class="board-viewport" id="board-viewport" role="region" aria-label="ภาพในคอลเล็กชัน">
+                <!-- แถวภาพ -->
+
+                <div class="collage-board">
+                    <!-- รายการทั้งหมด -->
+                    <div class="collection-group">
+                        <!-- ภาพ Barbie the Three Musketeers -->
+                        <figure class="collection-item item-spirited item-high">
+                            <a class="collection-image" href="detail.html?id=spirited"
+                                aria-label="See details: Barbie the Three Musketeers">
+                                <img src="assets/images/collection/Baebie04.jpg" alt="Barbie the Three Musketeers"
+                                    draggable="false" />
+                            </a>
+                            <figcaption>
+                                <h2>Barbie the Three Musketeers</h2>
+                                <p>บาร์บี้สามทหารเสือ</p>
+                                <p class="item-maker">Barbie the Three Musketeers</p>
+                                <a class="text-link" href="detail.html?id=spirited">
+                                    See details
+                                    <i class="icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+                                </a>
+                            </figcaption>
+                        </figure>
+                        <!-- ภาพ Barbie A Fairy Secret  -->
+                        <figure class="collection-item item-ram item-low">
+                            <a class="collection-image" href="detail.html?id=ram"
+                                aria-label="See details: Barbie A Fairy Secret ">
+                                <img src="assets/images/collection/Barbie 07.jpg "
+                                    alt="Barbie A Fairy Secret " draggable="false" />
+                            </a>
+                            <figcaption>
+                                <h2>Barbie A Fairy Secret </h2>
+                                <p>บาร์บี้ ความลับแห่งนางฟ้า</p>
+                                <p class="item-maker"></p>
+                                <a class="text-link" href="detail.html?id=ram">
+                                    See details
+                                    <i class="icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+                                </a>
+                            </figcaption>
+                        </figure>
+                        <!-- คำว่า Good company -->
+                        <div class="scene-word" aria-hidden="true">
+                            Good
+                            <br />
+                            <em>company.</em>
+                        </div>
+                        <!-- ภาพ Barbie The Princess&The Popstar -->
+
+                        <figure class="collection-item item-prince item-high">
+                            <a class="collection-image" href="detail.html?id=prince"
+                                aria-label="See details: Barbie The Princess&The Popstar">
+                                <img src="assets/images/collection/Barbie 08.jpg" alt="Barbie The Princess&The Popstar"
+                                    draggable="false" />
+                            </a>
+                            <figcaption>
+                                <h2>Barbie The Princess&The Popstar</h2>
+                                <p>บาร์บี้ เจ้าหญิงและป๊อปสตาร์</p>
+                                <p class="item-maker"></p>
+                                <a class="text-link" href="detail.html?id=prince">
+                                    See details
+                                    <i class="icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+                                </a>
+                            </figcaption>
+                        </figure>
+                        <!-- ภาพ Baebie The Pearl Princess-->
+                        <figure class="collection-item item-x100 item-low">
+                            <a class="collection-image" href="detail.html?id=x100"
+                                aria-label="See details: Baebie The Pearl Princess">
+                                <img src="assets/images/collection/Barbie 10.jpg" alt="Baebie The Pearl Princess"
+                                    draggable="false" />
+                            </a>
+                            <figcaption>
+                                <h2>Baebie The Pearl Princess</h2>
+                                <p>บาร์บี้ เจ้าหญิงเงือกน้อยกับไข่มุกวิเศษ </p>
+                                <p class="item-maker"></p>
+                                <a class="text-link" href="detail.html?id=x100">
+                                    See details
+                                    <i class="icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+                                </a>
+                            </figcaption>
+                        </figure>
+                        <!-- ภาพ Barbie Fairytopia: Mermaidia -->
+
+
+                        <figure class="collection-item item-budapest item-high">
+                            <a class="collection-image" href="detail.html?id=budapest"
+                                aria-label="See details: Barbie Fairytopia: Mermaidia">
+                                <img src="assets/images/collection/Barbie 16.jpg"
+                                    alt="Barbie Fairytopia: Mermaidia" draggable="false" />
+                            </a>
+                            <figcaption>
+                                <h2>Barbie Fairytopia: Mermaidia</h2>
+                                <p>บาร์บี้ นางฟ้าในดินแดนใต้สมุทร</p>
+                                <p class="item-maker"></p>
+                                <a class="text-link" href="detail.html?id=budapest">
+                                    See details
+                                    <i class="icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+                                </a>
+                            </figcaption>
+                        </figure>
+                        <!-- คำว่า Worth keeping -->
+
+                        <div class="scene-word" aria-hidden="true">
+                            Same
+                            <br />
+                            <em>feeling.</em>
+                        </div>
+                        <!-- ภาพ Barbie Fairytopia: Magic of the Rainbow -->
+                        <figure class="collection-item item-am item-low">
+                            <a class="collection-image" href="detail.html?id=am" aria-label="See details: Barbie Fairytopia: Magic of the Rainbow ">
+                                <img src="assets/images/collection/Barbie 15.jpg" alt="Barbie Fairytopia: Magic of the Rainbow " draggable="false" />
+                            </a>
+                            <figcaption>
+                                <h2>Barbie Fairytopia: Magic of the Rainbow </h2>
+                                <p>บาร์บี้ แฟรี่โทเปีย เวทมนตร์แห่งสายรุ้ง</p>
+                                <p class="item-maker"></p>
+                                <a class="text-link" href="detail.html?id=am">
+                                    See details
+                                    <i class="icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+                                </a>
+                            </figcaption>
+                        </figure>
+                        <!-- ภาพ Barbie and the magic of Pegasus -->
+
+
+                        <figure class="collection-item item-hobbit item-high">
+                            <a class="collection-image" href="detail.html?id=hobbit"
+                                aria-label="See details: Barbie and the magic of Pegasus">
+                                <img src="assets/images/collection/barbie14.jpg" alt="Barbie and the magic of Pegasus" draggable="false" />
+                            </a>
+                            <figcaption>
+                                <h2>Barbie and the magic of Pegasus</h2>
+                                <p>บาร์บี้กับเวทมนตร์แห่งเพกาซัส</p>
+                                <p class="item-maker"></p>
+                                <a class="text-link" href="detail.html?id=hobbit">
+                                    See details
+                                    <i class="icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+                                </a>
+                            </figcaption>
+                        </figure>
+                        <!-- คำว่า One more song -->
+                        <div class="scene-word" aria-hidden="true">
+                            A little
+                            <br />
+                            <em>more.</em>
+                        </div>
+                        <!-- ภาพ Barbie in the 12 Dancing Princesses -->
+                        <figure class="collection-item item-converse item-low">
+                            <a class="collection-image" href="detail.html?id=converse"
+                                aria-label="See details: Barbie in the 12 Dancing Princesses">
+                                <img src="assets/images/collection/Barbie-02-640x960.jpg" alt="Barbie in the 12 Dancing Princesses"
+                                    draggable="false" />
+                            </a>
+                            <figcaption>
+                                <h2>Barbie in the 12 Dancing Princesses</h2>
+                                <p>บาร์บี้กับเจ้าหญิงทั้ง 12</p>
+                                <p class="item-maker"></p>
+                                <a class="text-link" href="detail.html?id=converse">
+                                    See details
+                                    <i class="icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+                                </a>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <!-- เติม: คอลัมน์ท้ายเว็บ -->
+        <div class="footer-main">
+            <!-- เติม: footer-brand -->
+            <a class="footer-brand" href="index.html">
+                Bar
+                <br />
+                bie
+            </a>
+            <!-- เติม: nav -->
+            <nav aria-label="เมนูท้ายหน้า">
+                <h2>Navigation</h2>
+                <a href="index.html">Home</a>
+                <a href="story.html">Story</a>
+                <a href="collection.html">Collection</a>
+                <a href="about.html">About</a>
+            </nav>
+            <!-- เติม: ช่องทางติดต่อ -->
+            <div class="footer-contact">
+                <h2>Contact</h2>
+                <!-- เติม: a -->
+                <a href="mailto:hello@example.com">
+                    <i class="icon" data-lucide="mail" aria-hidden="true"></i>
+                    <span>hello@example.com</span>
+                </a>
+                <!-- เติม: ลิงก์โซเชียล -->
+                <div class="social-links">
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                        Instagram
+                        <i class="icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">
+                        Behance
+                        <i class="icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                        GitHub
+                        <i class="icon" data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- เติม: แถวลิขสิทธิ์ -->
+        <div class="footer-bottom">
+            <span>© 2026 Barbie</span>
+            <a href="#top">
+                Back to top
+                <i class="icon" data-lucide="arrow-up" aria-hidden="true"></i>
+            </a>
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
